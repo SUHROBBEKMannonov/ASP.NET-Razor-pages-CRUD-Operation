@@ -1,0 +1,82 @@
+﻿@page
+@model RazorCRUDProjectWeb.Pages.ModelUsersCV.ListOfUsersModel
+@{
+	int number = 0;
+}
+
+
+
+<div class="container p-3 pb-5">
+
+	<div class="row pt-4">
+			<div class="col-6">
+				<h1 class="text-primary ">List Of Users</h1>
+			</div>
+			<div class="col-6 text-end">
+				<a asp-page="Create" class="btn btn-warning  mt-2"><i class="bi bi-plus-square"></i>&nbsp Create</a>
+			</div>
+	</div>
+					<table class= "table table-primary"  style=" with:100%">
+						<thead>
+							<tr>
+								<th>
+									№
+								</th>
+									<th>
+									First Name
+								</th>
+									<th>
+									Last Name
+								</th>
+									<th>
+									Email
+								</th>
+									<th>
+									Phone Number
+								</th>
+								<th>
+									Birth of date
+								</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach(var obj in Model.DataUsers){
+
+								number++;
+								<tr>
+							<td class="table-light">
+								@number
+							</td>
+							<td class="table-light">
+								@obj.FirstName
+							</td>
+							<td class="table-light">
+								@obj.LastName
+							</td>
+							<td class="table-light">
+								@obj.Email
+							</td>
+							<td class="table-light">
+								+998 @obj.PhoneNumber
+							</td>
+							<td class="table-light">
+								@obj.BirthOfDate
+							</td>
+							<td>
+								
+										<a asp-page="Edit" asp-route-id="@obj.Id" style="text-decoration:none" ><i class="bi bi-pencil-square"></i> </a>
+								&nbsp 
+								<a asp-page="Delete" asp-route-id="@obj.Id" style="text-decoration:none" ><i class="bi bi-trash-fill"></i> </a>
+								
+							
+								
+							</td>
+							</tr>
+							}
+						</tbody>
+
+
+
+					</table>
+</div>

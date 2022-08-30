@@ -1,0 +1,53 @@
+﻿@page
+@model RazorCRUDProjectWeb.Pages.ModelUsersCV.DeleteModel
+@{
+}
+
+<form method="post">
+		<input hidden asp-for="modelUsers.Id" />
+<div class="border rounded  p-2 mt-5 mb-5 mx-auto "  style="width:300px" >
+	<div class="row pb-2">
+		<h2 class="text-primary pl-3">
+			Delete User
+		</h2>
+		
+		<div class="mb-3">
+			<label asp-for="modelUsers.FirstName"class="text-info"class="form-label mt-2"></label>
+			<input  style="width:250px" disabled asp-for="modelUsers.FirstName" class="form-control" placeholder="Enter First Name" />		
+		</div>
+		<div class="mb-3">
+			<label asp-for="modelUsers.LastName"class="text-info"class="form-label mt-2"></label>
+			<input style="width:250px" disabled asp-for="modelUsers.LastName" class="form-control" placeholder="Enter Last Name" />	
+			
+		</div>
+		<div class="mb-3">
+			<label asp-for="modelUsers.PhoneNumber"class="text-info"class="form-label mt-2"></label>
+			<label class="form-label mt-2 row-3"> (+998)</label>
+			<input style="width:250px"  disabled maxlength="9" asp-for="modelUsers.PhoneNumber" class="form-control" placeholder="XX-XXX-XX-XX" />	
+		
+		</div>
+		<div class="mb-3">
+			<label asp-for="modelUsers.Email"class="text-info"class="form-label mt-2"></label>
+			<input style="width:250px" disabled  type="email" asp-for="modelUsers.Email" class="form-control" placeholder="Enter Email" />		
+			   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		</div>
+	@*<div class="form-group">
+      <label for="exampleInputEmail1" class="form-label mt-0 text-info">Email address</label>
+      <input style="width:250px"   type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+   
+    </div>*@
+	<div class="mb-3 mt-0">
+			<label asp-for="modelUsers.BirthOfDate"class="text-info"class="form-label mt-2"></label>
+			<input   style="width:250px"  disabled asp-for="modelUsers.BirthOfDate" type="date"class="form-control"  />		
+		</div>
+   </div>
+   <div >
+	<button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?');" type="submit">Delete</button>
+<a  asp-page="/ModelUsersCV/ListOfUsers"class="btn btn-secondary">Back to list</a>
+</div>
+
+</form>
+@section Scripts{
+	@{<partial name="_ValidationScriptsPartial" />}
+}
+	  
